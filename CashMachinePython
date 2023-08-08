@@ -1,0 +1,52 @@
+r1 = r10 = r20 = r50 = 0
+n1 = n10 = n20 = n50 = 0
+resp = ''
+print('========= Banco RB ==========\n')
+valor = int(input('Olá! Qual valor deseja sacar? '))
+print('='*30)
+while valor > 0:
+    if valor >= 50:
+        n50 = valor // 50
+        r50 = valor % 50
+        if r50 >= 1:
+            n20 = r50 // 20
+            r20 = r50 % 20
+        if r20 >= 1:
+            n10 = r20 // 10
+            r10 = r20 % 10
+        if r10 >= 1:
+            n1 = r10 // 1
+            r1 = r10 % 1
+    if valor >= 20 and valor < 50:
+        n20 = valor // 20
+        r20 = valor % 20
+        if r20 >= 1:
+            n10 = r20 // 10
+            r10 = r20 % 10
+        if r10 >= 1:
+            n1 = r10 // 1
+            r1 = r10 % 1
+    if valor >= 10 and valor < 20:
+        n10 = valor // 10
+        r10 = valor % 10
+        if r10 >= 1:
+            n1 = r10 // 1
+            r1 = r10 % 1
+    if valor >= 1 and valor < 10:
+        n1 = valor // 1
+        r1 = valor % 1
+    resp = str(input('\nDeseja sacar novamente? [SIM / NAO] ')).lower()
+    if resp == 'NAO'.lower():
+        break
+
+print('='*30)
+print(f'\nVoce sacou R${valor:.2f}\n')
+print('='*30)
+print(f'Total de {n50} cedulas de R$50,00.')
+print(f'Total de {n20} cedulas de R$20,00.')
+print(f'Total de {n10} cedulas de R$10,00.')
+print(f'Total de {n1} cedulas de R$1,00.\n')
+print('='*30)
+print('\nMUITO OBRIGADO! VOLTE SEMPRE!')
+print('='*30)
+print('_'*30)
